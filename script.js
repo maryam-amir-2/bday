@@ -28,3 +28,21 @@ const ageContent = {
         desc: 'Suleiman visited the zoo!'
     }
 };
+function showAge(age) {
+    const display = document.getElementById('age-display');
+    const content = ageContent[age];
+    
+    // Animate out by removing the 'visible' class
+    display.classList.remove('visible');
+
+    // Wait for the fade-out transition to finish
+    setTimeout(() => {
+        // Update the content
+        display.innerHTML = `
+            <img src="${content.img}" alt="Age ${age}" class="age-img"/>
+            <p class="age-desc">${content.desc}</p>
+        `;
+        // Animate in the new content
+        display.classList.add('visible');
+    }, 500); // This delay should match the CSS transition duration
+}
